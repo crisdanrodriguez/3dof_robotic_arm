@@ -1,1 +1,1 @@
-# 3dof_robotic_arm
+# 3DOF Robotic Arm
