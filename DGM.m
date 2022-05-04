@@ -1,5 +1,7 @@
 function [Tn, T0Tn] = DGM(DH, q)
+    % Number of joints
     n = length(DH.sigma);
+    % Identity matrix for the first frame
     T0n = eye(4);
 
     for i = 1: n
