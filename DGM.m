@@ -1,4 +1,4 @@
-function [Tn, T0Tn] = DGM(DH, q)
+function [Tn, T0Tn, X, Y, Z] = DGM(DH, q)
     % Number of joints
     n = length(DH.sigma);
     % Identity matrix for the first frame
@@ -12,5 +12,10 @@ function [Tn, T0Tn] = DGM(DH, q)
         Tn{i} = T(:,:,i);
         T0n = T0n * T(:,:,i);
         T0Tn{i} = T0n;
+
+        % Plot parameters
+        X(i + 1,:) = T0Tn{i}(1, 4);
+        Y(i + 1,:) = T0Tn{i}(2, 4);
+        Z(i + 1,:) = T0Tn{i}(3, 4);
     end
 end
