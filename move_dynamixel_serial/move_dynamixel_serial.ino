@@ -13,7 +13,7 @@ boolean newData = false;
 
 void setup(){ 
    Serial.begin(9600);
-   Dynamixel.begin(FREQ,2);
+   Dynamixel.begin(FREQ, 2);
 } 
 
 void loop(){ 
