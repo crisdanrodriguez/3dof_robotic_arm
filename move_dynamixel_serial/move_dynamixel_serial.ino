@@ -1,6 +1,8 @@
+// Include necessary libraries
 #include <DynamixelSerial1.h> 
-#define FREQ 1000000   
 
+// Create and initialize variables
+#define FREQ 1000000   
 const byte numChars = 32; 
 char receivedChars[numChars]; 
 char tempChars[numChars];     
@@ -12,7 +14,9 @@ int theta3 = 0;
 boolean newData = false; 
 
 void setup(){ 
+  // Begin serial communication
    Serial.begin(9600);
+   // Initialize dynamixel motors 
    Dynamixel.begin(FREQ, 2);
 } 
 

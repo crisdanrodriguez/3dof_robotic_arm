@@ -4,6 +4,7 @@ function [DH, q] = DH_parameters(theta1_deg, theta2_deg, theta3_deg)
     theta2_rad = round(theta2_deg) * (pi/180);
     theta3_rad = round(theta3_deg) * (pi/180);
     
+    % Variables values
     D1 = 131; L2 = 91.7; L3 = 100;
 
     % DH parameters

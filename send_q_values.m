@@ -1,5 +1,6 @@
 function send_q_values(device, theta_array)
 
+    % Send array with theta values 
     writeline(device, theta_array)
 
     % Reads until it gets the new line character 
