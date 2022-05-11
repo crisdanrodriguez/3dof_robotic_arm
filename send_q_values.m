@@ -13,3 +13,4 @@ function send_q_values(device, theta_array)
     pause(1.0) 
 
 end
+

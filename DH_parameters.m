@@ -14,3 +14,4 @@ function [DH, q] = DH_parameters(theta1_deg, theta2_deg, theta3_deg)
     DH.d = [D1, 0, 0, D4].';
     q = [theta1_rad, theta2_rad, theta3_rad, 0];
 end
+
