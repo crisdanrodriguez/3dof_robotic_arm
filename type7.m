@@ -26,7 +26,7 @@ function qn = type7(W1, W2, X, Y, Z1, Z2)
     
     qt_f = [qt_1, qt_2]';
     
-    restarq3 = [(qt_1-qk(1)),(qt_2-qk(2))];
+    restarq3 = [(qt_1-qk(1)), (qt_2-qk(2))];
     
     qn = [qk(1), qk(2); (qt_1-qk(1)), (qt_2-qk(2))];
 end

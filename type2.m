@@ -9,7 +9,7 @@ function q = type2(X, Y, Z)
         theta1_b = atan2(S, -sqrt(1 - S^2));
     elseif (X ~= 0 && Y ~= 0 && Z == 0)
         theta1_a = atan2(-Y, X);
-        theta1_b = theta1_1 + pi;
+        theta1_b = theta1_a + pi;
     elseif (X ~= 0 && Y ~= 0 && Z ~= 0)     
         senn_1=(((X*Z)+(Y*sqrt((X^2)+(Y^2)-(Z^2))))/((X^2)+(Y^2)));
         coss_1=(((Y*Z)-(X*sqrt((X^2)+(Y^2)-(Z^2))))/((X^2)+(Y^2))); 
