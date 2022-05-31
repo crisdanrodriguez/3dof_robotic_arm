@@ -91,10 +91,10 @@ void showParsedData() {
 } 
 
 void moveServo(int theta1, int theta2, int theta3) { 
-  Dynamixel.moveSpeed(1, theta1, 200);  // Move the Servo(ID), to 0° = 0 
+  Dynamixel.moveSpeed(1, theta1, 200);  
   delay(25);
-  Dynamixel.moveSpeed(2, theta2, 200);  // Move the Servo(ID), to 0° = 0
+  Dynamixel.moveSpeed(2, theta2, 200);  
   delay(25);
-  Dynamixel.moveSpeed(3, theta3, 200);  // Move the Servo(ID), to 0° = 0 
+  Dynamixel.moveSpeed(3, theta3, 200);  
   delay(25);
 } 

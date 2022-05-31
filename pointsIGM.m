@@ -1,5 +1,4 @@
-function points = pointsIGM(xi, yi, zi, xf, yf, zf)
-    
+function points = pointsIGM(xi, yi, zi, xf, yf, zf)  
     pos_inicial = [xi yi zi];
     pos_final = [xf yf zf];
 
