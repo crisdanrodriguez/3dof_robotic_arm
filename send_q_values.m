@@ -1,5 +1,4 @@
 function send_q_values(device, theta_array)
-
     % Send array with theta values 
     writeline(device, theta_array)
 
@@ -9,8 +8,5 @@ function send_q_values(device, theta_array)
     while device.NumBytesAvailable ~= 0 
         disp(readline(device)) 
     end 
-
-    pause(1.0) 
-
 end
 
