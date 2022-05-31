@@ -1,5 +1,5 @@
 function qs_best = best_solution(qs_good, theta1_deg, theta2_deg, theta3_deg)
-    n = length(qs_good);
+    n = height(qs_good);
     e_sum = [];
 
     % Calculate the error for each set of qs
