@@ -1,5 +1,5 @@
 function circle_points = circlepointsIGM(xi, yi,xm, ym, x_final, y_final,z)
-    syms x y
+    syms x y    
     pointA = [xi, yi];
     pointB = [xm,ym];
     pointC = [x_final, y_final];
@@ -10,8 +10,9 @@ function circle_points = circlepointsIGM(xi, yi,xm, ym, x_final, y_final,z)
     
     eqn1 = y-midpointAB(2) == perpgrad1*(x-midpointAB(1));
     eqn2 = y-midpointBC(2) == perpgrad2*(x-midpointBC(1));
-    
     [A,B] = equationsToMatrix([eqn1, eqn2], [x, y]);
+%     A=[perpgrad1, -1; perpgrad2, - 1 ];
+%     B=[-perpgrad1*midpointAB(1) + midpointAB(2); -perpgrad2*midpointBC(1) + midpointBC(2)];
     sol = linsolve(A,B);
     radius = double(subs(sqrt((pointC(1)-sol(1))^2+(pointC(2)-sol(2))^2)));
     r = double(subs(radius));
@@ -20,22 +21,24 @@ function circle_points = circlepointsIGM(xi, yi,xm, ym, x_final, y_final,z)
         
     %poner q si el punto inicial es igual al punto de position 1 solo sea un punto
     solution= double(subs(sol));
-if -r+solution(1)==position(1,1)
-        rangex1 = position(1,1);        
-    else
-        rangex1= vpa(-r+solution(1):(position(1,1)-(-r+solution(1)))/5:position(1,1))';
-end
-rangex2= vpa(position(1,1)+(position(2,1)-(position(1,1)))/5:(position(2,1)-position(1,1))/5:position(2,1))';
-rangex3= vpa(position(2,1)+(position(3,1)-(position(2,1)))/5:(position(3,1)-position(2,1))/5:position(3,1))';
-if r+solution(1)==position(3,1)+((r+solution(1))-(position(3,1)))/5
+    if -r+solution(1)==position(1,1)
+            rangex1 = position(1,1);        
+            rangex2= vpa(position(1,1)+(position(2,1)-(position(1,1)))/10:(position(2,1)-position(1,1))/5:position(2,1))';
+        else
+            rangex1= vpa(-r+solution(1):(position(1,1)-(-r+solution(1)))/5:position(1,1))';
+            rangex2= vpa(position(1,1)+(position(2,1)-(position(1,1)))/5:(position(2,1)-position(1,1))/5:position(2,1))';
+    end
+    if r+solution(1)==position(3,1)+((r+solution(1))-(position(3,1)))/5
+        rangex3= vpa(position(2,1)+(position(3,1)-(position(2,1)))/10:(position(3,1)-position(2,1))/5:position(3,1))';    
         rangex4 = r+solution(1);        
     else
+        rangex3= vpa(position(2,1)+(position(3,1)-(position(2,1)))/5:(position(3,1)-position(2,1))/5:position(3,1))';
         rangex4= vpa(position(3,1)+((r+solution(1))-(position(3,1)))/5:((r+solution(1))-position(3,1))/5:r+solution(1))';
-end
+    end
     rangeinX = [rangex1; rangex2; rangex3; rangex4];
-    
-    rangey1 = sqrt(r^2-(rangeinX(:,1)-solution(1)).^2)+solution(2);
-    rangey2 =-sqrt(r^2-(rangeinX(:,1)-solution(1)).^2)+solution(2);
+
+    rangey1 = real(sqrt(r^2-(rangeinX(:,1)-solution(1)).^2)+solution(2));
+    rangey2 = real(-sqrt(r^2-(rangeinX(:,1)-solution(1)).^2)+solution(2));
     rangeinX = [rangeinX; flip(rangeinX(1:end-1,1))];
     
     y = [rangey1; flip(rangey2(1:end-1,1))];
@@ -85,8 +88,3 @@ end
         end
     end
 end
-
-
-
-
-
