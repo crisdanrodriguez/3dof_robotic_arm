@@ -25,15 +25,15 @@ function circle_points = circlepointsIGM(xi, yi,xm, ym, x_final, y_final,z)
             rangex1 = position(1,1);        
             rangex2= vpa(position(1,1)+(position(2,1)-(position(1,1)))/10:(position(2,1)-position(1,1))/5:position(2,1))';
         else
-            rangex1= vpa(-r+solution(1):(position(1,1)-(-r+solution(1)))/5:position(1,1))';
-            rangex2= vpa(position(1,1)+(position(2,1)-(position(1,1)))/5:(position(2,1)-position(1,1))/5:position(2,1))';
+            rangex1= vpa(-r+solution(1):(position(1,1)-(-r+solution(1)))/10:position(1,1))';
+            rangex2= vpa(position(1,1)+(position(2,1)-(position(1,1)))/10:(position(2,1)-position(1,1))/5:position(2,1))';
     end
-    if r+solution(1)==position(3,1)+((r+solution(1))-(position(3,1)))/5
+    if r+solution(1)==position(3,1)+((r+solution(1))-(position(3,1)))/10
         rangex3= vpa(position(2,1)+(position(3,1)-(position(2,1)))/10:(position(3,1)-position(2,1))/5:position(3,1))';    
         rangex4 = r+solution(1);        
     else
-        rangex3= vpa(position(2,1)+(position(3,1)-(position(2,1)))/5:(position(3,1)-position(2,1))/5:position(3,1))';
-        rangex4= vpa(position(3,1)+((r+solution(1))-(position(3,1)))/5:((r+solution(1))-position(3,1))/5:r+solution(1))';
+        rangex3= vpa(position(2,1)+(position(3,1)-(position(2,1)))/10:(position(3,1)-position(2,1))/5:position(3,1))';
+        rangex4= vpa(position(3,1)+((r+solution(1))-(position(3,1)))/10:((r+solution(1))-position(3,1))/5:r+solution(1))';
     end
     rangeinX = [rangex1; rangex2; rangex3; rangex4];
 

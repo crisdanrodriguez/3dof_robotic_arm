@@ -26,6 +26,6 @@ function qs = IGM(P4X, P4Y, P4Z)
             qs_2(n) = qs_2(n)-360;
         end
     end
-    qs = [qs_13(:,1) qs_2 qs_13(:,2)];
+    qs = [qs_13(:,1), qs_2, qs_13(:,2)];
     
 end
